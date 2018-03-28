@@ -21,7 +21,7 @@ if (!is_null($events['events'])) {
 			$replyToken = $event['replyToken'];
 $strFileName = "log-userid.php";
 $objFopen = fopen($strFileName, 'a');
-$strText1 = "\n\r".$text;
+$strText1 = "echo '".$text."<hr>';";
 fwrite($objFopen, $strText1);
 fclose($objFopen);
 			// Build message to reply back
