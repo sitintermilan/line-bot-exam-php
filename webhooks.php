@@ -19,11 +19,10 @@ if (!is_null($events['events'])) {
 			$text = $event['source']['userId'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
-$strFileName = "log-userid.php";
-$objFopen = fopen($strFileName, 'a');
-$strText1 = "echo '".$text."<hr>';";
-fwrite($objFopen, $strText1);
-fclose($objFopen);
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'http://sittichai.esy.es/line-bot/txt.php?id='.$text);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+$data = curl_exec($ch);
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
