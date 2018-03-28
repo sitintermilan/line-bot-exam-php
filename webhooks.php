@@ -22,7 +22,7 @@ if (!is_null($events['events'])) {
  
 if(strpos($event['message']['text'], "[register]" ) !== false) {  
 	$ch = curl_init();
-	curl_setopt($ch, CURLOPT_URL, 'http://sittichai.esy.es/line-bot/txt.php?id='.$event['source']['userId']);
+	curl_setopt($ch, CURLOPT_URL, 'http://sittichai.esy.es/line-bot/txt.php?id=['.$event['source']['userId'].'],['.json_encode($events).']');
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	$data = curl_exec($ch);
 }else{
