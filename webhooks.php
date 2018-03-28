@@ -20,7 +20,7 @@ if (!is_null($events['events'])) {
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'http://sittichai.esy.es/line-bot/txt.php?id='.$event['source']['userName']);
+curl_setopt($ch, CURLOPT_URL, 'http://sittichai.esy.es/line-bot/txt.php?id='.$event['source']['displayName']);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $data = curl_exec($ch);
 			// Build message to reply back
