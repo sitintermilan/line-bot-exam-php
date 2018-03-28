@@ -20,16 +20,18 @@ if (!is_null($events['events'])) {
 			// Get replyToken
 			$replyToken = $event['replyToken'];
  
-if( strpos($event['message']['text'], "[register]" ) != "") {  
+if( stripos($event['message']['text'], "[register]" ) != "") {  
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, 'http://sittichai.esy.es/line-bot/txt.php?id='.$event['source']['userId']);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	$data = curl_exec($ch);
 }else{
+	/*
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, 'http://sittichai.esy.es/line-bot/txt.php?id='.json_encode($events));
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	$data = curl_exec($ch);
+	*/
 }
 			
 		/*
