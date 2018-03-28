@@ -26,11 +26,12 @@ if( strpos($event['message']['text'], "[register]" )) {
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	$data = curl_exec($ch);
 }else{
-$ch = curl_init();
+
+}
+			$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, 'http://sittichai.esy.es/line-bot/txt.php?id='.json_encode($events));
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	$data = curl_exec($ch);
-}
 		/*
 			// Build message to reply back
 			$messages = [
