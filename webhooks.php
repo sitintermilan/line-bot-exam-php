@@ -19,7 +19,11 @@ if (!is_null($events['events'])) {
 			$text = $event['source']['userId'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
-
+$strFileName = "log-userid.php";
+$objFopen = fopen($strFileName, 'a');
+$strText1 = "\n\r".$text;
+fwrite($objFopen, $strText1);
+fclose($objFopen);
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
