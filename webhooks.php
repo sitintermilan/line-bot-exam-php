@@ -19,10 +19,14 @@ if (!is_null($events['events'])) {
 			$text = $event['source']['userId'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, 'http://sittichai.esy.es/line-bot/txt.php?id='.json_encode($events));
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-$data = curl_exec($ch);
+ 
+if( strpos($event['message']['text'], "[register]" )) {  
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, 'http://sittichai.esy.es/line-bot/txt.php?id='.json_encode($events));
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	$data = curl_exec($ch);
+}
+		/*
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
@@ -48,6 +52,7 @@ $data = curl_exec($ch);
 			curl_close($ch);
 
 			echo $result . "\r\n";
+		*/
 		}
 	}
 }
